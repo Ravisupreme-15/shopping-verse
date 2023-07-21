@@ -38,6 +38,6 @@ public class OrderEntity {
 
 
     @ManyToOne
-            @JoinColumn
+    @JoinColumn
     Customer customer;
 }

@@ -27,6 +27,11 @@ public class Item {
     Cart cart;
 
     @ManyToOne
-            @JoinColumn
+    @JoinColumn
     Product product;
+
+
+    @ManyToOne
+    @JoinColumn
+    OrderEntity orderEntity;
 }

@@ -3,10 +3,7 @@ package com.example.shoppingverse.model;
 
 import com.example.shoppingverse.Enum.Gender;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "seller")
 public class Seller {
 
@@ -36,6 +34,7 @@ public class Seller {
     @Column(unique = true,nullable = false)
     String mobileNo;
 
+     @Enumerated(EnumType.STRING)
     Gender gender;
 
     @OneToMany(mappedBy = "seller",cascade = CascadeType.ALL)

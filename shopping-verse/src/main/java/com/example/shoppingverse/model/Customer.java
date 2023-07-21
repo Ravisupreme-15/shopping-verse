@@ -1,6 +1,5 @@
 package com.example.shoppingverse.model;
 
-
 import com.example.shoppingverse.Enum.Gender;
 import jakarta.persistence.*;
 import lombok.*;
@@ -14,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "customer")
-public class Customer {
+public class Customer{
 
 
     @Id
@@ -30,7 +30,7 @@ public class Customer {
     @Column(unique = true)
     String mobileNo;
 
-
+    @Enumerated(EnumType.STRING)
     Gender gender;
 
     @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
@@ -44,3 +44,4 @@ public class Customer {
     @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     List<OrderEntity> orderEntities = new ArrayList<>();
 }
+

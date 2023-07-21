@@ -30,7 +30,7 @@ public class Cart {
     @JoinColumn
     Customer customer;
 
-     @OneToOne(mappedBy = "cart",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cart",cascade = CascadeType.ALL)
     List<Item>  itemList = new ArrayList<>();
 
 

@@ -4,10 +4,7 @@ package com.example.shoppingverse.model;
 import com.example.shoppingverse.Enum.PrdStatus;
 import com.example.shoppingverse.Enum.prdCategory;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -18,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 @Table(name = "product")
 public class Product  {
 
@@ -32,10 +30,11 @@ public class Product  {
 
     int availableQty;
 
+    @Enumerated(EnumType.STRING)
     prdCategory category;
 
+    @Enumerated(EnumType.STRING)
     PrdStatus status;
-
 
     @ManyToOne
     @JoinColumn

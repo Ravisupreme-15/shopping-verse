@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -27,12 +28,13 @@ public class Card {
 
     int cvv;
 
+    @Enumerated(EnumType.STRING)
     CardType cardType;
 
     Date validTill;
 
 
-    @OneToMany
-            @JoinColumn
+    @ManyToOne
+    @JoinColumn
     Customer customer;
 }
