@@ -7,19 +7,22 @@ import lombok.experimental.FieldDefaults;
 import java.util.Date;
 
 @Data
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @AllArgsConstructor
 @NoArgsConstructor
-@FieldDefaults(level = AccessLevel.PRIVATE)
 @Builder
+
 public class CardResDto {
 
-    // masked cardNo ::---  ex: xxxxxxxxxxxx1234
-    String  cardNo;
 
-    String customerName;
+       String customerName;
 
-    Date validDate;
+       // masked cardNo
+       String cardNo;
 
-    CardType cardType;
+       Date validTill;
+
+       CardType cardType;
+
 
 }

@@ -3,7 +3,6 @@ package com.example.shoppingverse.transformer;
 import com.example.shoppingverse.dto.reqDto.CardReqDto;
 import com.example.shoppingverse.dto.resDto.CardResDto;
 import com.example.shoppingverse.model.Card;
-import com.example.shoppingverse.model.Customer;
 
 public class CardTransformer {
 
@@ -26,7 +25,7 @@ public class CardTransformer {
                      .cardType(card.getCardType())
                      .cardNo(getMaskedCardNo(card.getCardNo()))
                      .customerName(card.getCustomer().getName())
-                     .validDate(card.getValidTill())
+                     .validTill(card.getValidTill())
                       .build();
     }
 

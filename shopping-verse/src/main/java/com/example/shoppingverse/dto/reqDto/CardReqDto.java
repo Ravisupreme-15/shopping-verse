@@ -1,10 +1,12 @@
 package com.example.shoppingverse.dto.reqDto;
 
 import com.example.shoppingverse.Enum.CardType;
+import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -13,11 +15,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@Builder
 public class CardReqDto {
 
-
-    //customer emailid
     String mobileNo;
 
     String cardNo;
@@ -26,6 +25,6 @@ public class CardReqDto {
 
     CardType cardType;
 
-    Date validTill;
 
+    Date validTill;
 }
