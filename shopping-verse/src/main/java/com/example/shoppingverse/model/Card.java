@@ -2,10 +2,7 @@ package com.example.shoppingverse.model;
 
 import com.example.shoppingverse.Enum.CardType;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -16,7 +13,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name = "card")
+@Table(name ="card")
+@Builder
 public class Card {
 
     @Id
@@ -31,6 +29,7 @@ public class Card {
     @Enumerated(EnumType.STRING)
     CardType cardType;
 
+    @CreationTimestamp
     Date validTill;
 
 

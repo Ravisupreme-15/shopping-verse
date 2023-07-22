@@ -2,7 +2,7 @@ package com.example.shoppingverse.model;
 
 
 import com.example.shoppingverse.Enum.PrdStatus;
-import com.example.shoppingverse.Enum.prdCategory;
+import com.example.shoppingverse.Enum.PrdCategory;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -31,7 +31,7 @@ public class Product  {
     int availableQty;
 
     @Enumerated(EnumType.STRING)
-    prdCategory category;
+    PrdCategory category;
 
     @Enumerated(EnumType.STRING)
     PrdStatus status;

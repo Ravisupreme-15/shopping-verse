@@ -1,5 +1,6 @@
 package com.example.shoppingverse.service;
 
+import com.example.shoppingverse.Enum.PrdCategory;
 import com.example.shoppingverse.dto.reqDto.ProductReqDto;
 import com.example.shoppingverse.dto.resDto.ProductResDto;
 import com.example.shoppingverse.exception.SellerNotFoundException;
@@ -11,8 +12,8 @@ import com.example.shoppingverse.transformer.ProductTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -53,5 +54,20 @@ public class ProductService {
 
         return productResDto;
 
+    }
+
+    public List<ProductResDto> getPrdByCategoryAndPriceGreaterThan(PrdCategory prdCategory, int price) {
+
+
+              List<Product> productList = productRepository.getPrdByCategoryAndPriceGreaterThan(prdCategory,price);
+
+              List<ProductResDto> productResDtoList = new ArrayList<>();
+
+              for(Product product : productList){
+
+                    productResDtoList.add(ProductTransformer.ProdctEntityToResDto(product));
+
+              }
+              return productResDtoList;
     }
 }

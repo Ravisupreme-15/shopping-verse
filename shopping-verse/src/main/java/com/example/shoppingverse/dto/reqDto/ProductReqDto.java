@@ -1,10 +1,6 @@
 package com.example.shoppingverse.dto.reqDto;
 
-import com.example.shoppingverse.Enum.PrdStatus;
-import com.example.shoppingverse.Enum.prdCategory;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jdk.jfr.Name;
+import com.example.shoppingverse.Enum.PrdCategory;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -23,7 +19,7 @@ public class ProductReqDto {
 
     int availableQty;
 
-    prdCategory category;
+    PrdCategory category;
 
     // seller emailid
     String emailId;

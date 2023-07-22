@@ -1,9 +1,7 @@
 package com.example.shoppingverse.dto.resDto;
 
 import com.example.shoppingverse.Enum.PrdStatus;
-import com.example.shoppingverse.Enum.prdCategory;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import com.example.shoppingverse.Enum.PrdCategory;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,7 +22,7 @@ public class ProductResDto {
     int availableQty;
 
 
-    prdCategory category;
+    PrdCategory category;
 
     PrdStatus status;
 

@@ -1,6 +1,6 @@
 package com.example.shoppingverse.Enum;
 
-public enum prdCategory {
+public enum PrdCategory {
 
     FOOD,
     SPORTS,
