@@ -3,6 +3,9 @@ package com.example.shoppingverse.transformer;
 import com.example.shoppingverse.dto.reqDto.CardReqDto;
 import com.example.shoppingverse.dto.resDto.CardResDto;
 import com.example.shoppingverse.model.Card;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+
 
 public class CardTransformer {
 
@@ -29,7 +32,7 @@ public class CardTransformer {
                       .build();
     }
 
-    private static String getMaskedCardNo(String cardNo) {
+    public static String getMaskedCardNo(String cardNo) {
 
           String ans="";
 

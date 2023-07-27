@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.lang.model.element.NestingKind;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class OrderEntity {
 
     String orderId;
 
+    @CreationTimestamp
     Date orderDate;
 
     String cardUsed;

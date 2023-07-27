@@ -12,11 +12,13 @@ import com.example.shoppingverse.repository.CustomerRepository;
 import com.example.shoppingverse.repository.ProductRepository;
 import com.example.shoppingverse.transformer.ItemTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.awt.print.PrinterAbortException;
 import java.text.ParseException;
 import java.util.Optional;
 
+@Service
 public class ItemService {
 
     @Autowired
@@ -57,5 +59,6 @@ public class ItemService {
            Item item = ItemTransformer.ItemReqDtoToItem(itemReqDto.getRequiredQty());
            item.setProduct(product);
 
+            return item;
     }
 }
