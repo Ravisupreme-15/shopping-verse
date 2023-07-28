@@ -28,8 +28,8 @@ public class CardService {
         if(customer==null) throw new CustomerNotFoundException("Customer mobileNo is invalid");
 
 
-
         // create card entity
+
 
         Card card = CardTransformer.CardReqDtoToEntity(cardReqDto);
         card.setCustomer(customer);
@@ -43,13 +43,13 @@ public class CardService {
         Card latestCard = cardList.get(cardList.size()-1);
 
 
-
         // make cardresdto
-
         CardResDto cardResDto = CardTransformer.CardEntityToResDto(latestCard);
 
 
+
         return cardResDto;
+
 
     }
 }

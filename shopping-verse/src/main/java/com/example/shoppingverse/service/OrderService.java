@@ -59,7 +59,7 @@ public class OrderService {
         }
 
 
-        Optional<Product> optionalProduct = productRepository.findById(orderReqDto.getProductId());
+        Optional<Product> optionalProduct = productRepository.findById(orderReqDto. getProductId());
 
         if(optionalProduct.isEmpty()){
 
@@ -109,13 +109,10 @@ public class OrderService {
         item.setProduct(product);
 
         order.getItemList().add(item);
-
+        order.setCustomer(customer);
 
 
         OrderEntity savedOrder =orderRepository.save(order);
-
-        order.setCustomer(customer);
-
 
 
         product.getItemList().add(savedOrder.getItemList().get(0));
@@ -123,13 +120,6 @@ public class OrderService {
 
 
         return OrderTransformer.OrderToOrderResDto(savedOrder);
-
-
-
-
-
-
-
 
 
     }

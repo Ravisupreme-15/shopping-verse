@@ -7,7 +7,6 @@ public enum PrdCategory {
     ELECTRONICS,
     LIFESTYLE,
     KITCHEN,
-
     CLOTHES,
 
 

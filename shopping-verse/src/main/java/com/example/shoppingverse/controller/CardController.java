@@ -21,7 +21,7 @@ public class CardController {
 
     // add new Card
 
-    @PostMapping("/addNew Card")
+    @PostMapping("/addNewCard")
     public ResponseEntity addNewCard(@RequestBody  CardReqDto cardReqDto){
 
 

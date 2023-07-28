@@ -29,7 +29,7 @@ public class Card {
     @Enumerated(EnumType.STRING)
     CardType cardType;
 
-    @CreationTimestamp
+
     Date validTill;
 
 
