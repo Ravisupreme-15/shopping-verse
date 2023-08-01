@@ -2,6 +2,7 @@ package com.example.shoppingverse.service;
 
 
 import com.example.shoppingverse.Enum.PrdStatus;
+import com.example.shoppingverse.dto.reqDto.CartReqDto;
 import com.example.shoppingverse.dto.reqDto.OrderReqDto;
 import com.example.shoppingverse.dto.resDto.OrderResDto;
 import com.example.shoppingverse.exception.CustomerNotFoundException;
@@ -14,10 +15,12 @@ import com.example.shoppingverse.transformer.CardTransformer;
 import com.example.shoppingverse.transformer.ItemTransformer;
 import com.example.shoppingverse.transformer.OrderTransformer;
 import com.fasterxml.jackson.databind.DatabindException;
+import jakarta.persistence.criteria.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -120,6 +123,60 @@ public class OrderService {
 
 
         return OrderTransformer.OrderToOrderResDto(savedOrder);
+
+
+    }
+
+    public OrderEntity placeOrder(Cart cart, Card card) {
+
+
+         List<Item> itemList = cart.getItemList();
+
+
+         OrderEntity order = new OrderEntity();
+
+         order.setOrderId(String.valueOf(UUID.randomUUID()));
+
+         order.setCardUsed(CardTransformer.getMaskedCardNo(card.getCardNo()));
+
+
+         int orderTotal=0;
+
+         for(Item item: itemList){
+
+             Product product = item.getProduct();
+
+             if(product.getAvailableQty()< item.getRequiredQty()){
+
+                 throw new InsufficientQuantityException("Sorry! Insufficient quantity available for the item "+product.getProductName());
+
+             }
+
+              int newqty = product.getAvailableQty() - item.getRequiredQty();
+
+
+             product.setAvailableQty(newqty);
+
+             if(newqty==0) product.setStatus(PrdStatus.OUT_OF_STOCK);
+
+
+             orderTotal +=product.getPrice()*item.getRequiredQty();
+
+             item.setOrderEntity(order);
+         }
+         order.setOrderTotal(orderTotal);
+         order.setItemList(cart.getItemList());
+         order.setCustomer(cart.getCustomer());
+
+
+
+         return order;
+
+
+
+
+
+
 
 
     }

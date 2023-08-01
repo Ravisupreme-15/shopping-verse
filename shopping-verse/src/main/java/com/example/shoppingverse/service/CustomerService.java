@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomerService {
+public class CustomerService{
 
    @Autowired
    CustomerRepository customerRepository;
@@ -28,7 +28,6 @@ public class CustomerService {
           cart.setCartTotal(0);
 
           customer.setCart(cart);
-
 
 
           Customer savedCustomer = customerRepository.save(customer);
