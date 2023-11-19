@@ -30,7 +30,6 @@ public class CardController {
             return new ResponseEntity(cardResDto,HttpStatus.ACCEPTED);
         }
        catch (Exception e){
-
              return new ResponseEntity(e.getMessage(), HttpStatus.NOT_ACCEPTABLE);
        }
 
